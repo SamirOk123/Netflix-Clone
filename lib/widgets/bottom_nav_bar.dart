@@ -25,7 +25,7 @@ class CustomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           bottomNavController.selectedIndex.value = 0;
                         },
-                        selected: bottomNavController.selectedIndex == 0,
+                        selected: bottomNavController.selectedIndex.value == 0,
                         text: 'Home'),
                   ),
                   Obx(
@@ -34,7 +34,7 @@ class CustomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           bottomNavController.selectedIndex.value = 1;
                         },
-                        selected: bottomNavController.selectedIndex == 1,
+                        selected: bottomNavController.selectedIndex.value == 1,
                         text: 'Games'),
                   ),
                   Obx(
@@ -43,7 +43,7 @@ class CustomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           bottomNavController.selectedIndex.value = 2;
                         },
-                        selected: bottomNavController.selectedIndex == 2,
+                        selected: bottomNavController.selectedIndex.value == 2,
                         text: 'Coming Soon'),
                   ),
                   Obx(
@@ -52,7 +52,7 @@ class CustomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           bottomNavController.selectedIndex.value = 3;
                         },
-                        selected: bottomNavController.selectedIndex == 3,
+                        selected: bottomNavController.selectedIndex.value == 3,
                         text: 'Fast Laughs'),
                   ),
                   Obx(
@@ -61,7 +61,7 @@ class CustomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           bottomNavController.selectedIndex.value = 4;
                         },
-                        selected: bottomNavController.selectedIndex == 4,
+                        selected: bottomNavController.selectedIndex.value == 4,
                         text: 'Downloads'),
                   ),
                 ],
