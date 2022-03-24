@@ -9,7 +9,7 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     BottomNavController bottomNavController = Get.put(BottomNavController());
     return Container(
-      decoration: const BoxDecoration(color: Colors.black),
+      decoration: const BoxDecoration(color: Color.fromARGB(29, 158, 158, 158)),
       child: BottomAppBar(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
