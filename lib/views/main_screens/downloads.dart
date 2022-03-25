@@ -40,7 +40,7 @@ class Downloads extends StatelessWidget {
                     ),
                     const SizedBox(
                       width: 20,
-                    )
+                    ),
                   ],
                 ),
               ),
