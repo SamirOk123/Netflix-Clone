@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone/controllers/bottom_nav_controller.dart';
+import 'package:netflix_clone/cosntants.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({Key? key}) : super(key: key);
@@ -102,7 +103,7 @@ class IconBottomBar extends StatelessWidget {
             icon,
             size: 26,
             color: selected
-                ? Colors.white
+                ? kWhite
                 : const Color.fromARGB(185, 158, 158, 158),
           ),
         ),
@@ -112,7 +113,7 @@ class IconBottomBar extends StatelessWidget {
             fontSize: 9,
             height: .1,
             color: selected
-                ? Colors.white
+                ? kWhite
                 : const Color.fromARGB(185, 158, 158, 158),
           ),
         ),

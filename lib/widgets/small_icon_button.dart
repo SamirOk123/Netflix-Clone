@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/cosntants.dart';
 
-class MyIconButton extends StatelessWidget {
-  const MyIconButton({Key? key, required this.icon, required this.label})
+class SmallIconButton extends StatelessWidget {
+  const SmallIconButton({Key? key, required this.icon, required this.label})
       : super(key: key);
 
   final IconData icon;
@@ -15,14 +15,14 @@ class MyIconButton extends StatelessWidget {
         Icon(
           icon,
           color: kWhite,
-          size: 26,
+          size: 24,
         ),
         const SizedBox(
           height: 5,
         ),
         Text(
           label,
-          style: const TextStyle(color:kWhite, fontSize: 16),
+          style: const TextStyle(color: Colors.grey, fontSize: 9),
         ),
       ],
     );

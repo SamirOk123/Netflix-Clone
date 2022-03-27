@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone/controllers/fast_laghs_controller.dart';
+import 'package:netflix_clone/cosntants.dart';
 import 'package:netflix_clone/networking.dart';
 import 'package:netflix_clone/widgets/my_icon_button.dart';
 
@@ -12,7 +13,7 @@ class FastLaughs extends StatelessWidget {
     FastLaughsController fastLaughsController = Get.put(FastLaughsController());
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: kBlack,
         body: FutureBuilder(
           future: Networking().getPopular(),
           builder: (context, snapshot) {
@@ -36,8 +37,8 @@ class FastLaughs extends StatelessWidget {
                                   : ' 13+ ',
                               style: const TextStyle(
                                   fontSize: 14,
-                                  color: Colors.white,
-                                  backgroundColor: Colors.black,
+                                  color: kWhite,
+                                  backgroundColor: kBlack,
                                   fontWeight: FontWeight.bold),
                             );
                           }),
@@ -78,7 +79,7 @@ class FastLaughs extends StatelessWidget {
                     height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage('http://image.tmdb.org/t/p/w500' +
+                          image: NetworkImage(kImageURL +
                               fastLaughsController.popular[index]
                                   ['poster_path']),
                           fit: BoxFit.cover),

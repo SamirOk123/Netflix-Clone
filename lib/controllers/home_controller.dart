@@ -7,7 +7,7 @@ import 'package:netflix_clone/views/main_screens/home.dart';
 
 class HomeController extends GetxController {
   final List screens = [
-    const Home(),
+    Home(),
     const Games(),
     const ComingSoon(),
     const FastLaughs(),

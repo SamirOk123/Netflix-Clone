@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone/controllers/bottom_nav_controller.dart';
 import 'package:netflix_clone/controllers/home_controller.dart';
+import 'package:netflix_clone/cosntants.dart';
 import 'package:netflix_clone/widgets/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Obx(
       () => Scaffold(
         body: homeController.screens[bottomNavController.selectedIndex.value],
-        backgroundColor: Colors.black,
+        backgroundColor: kBlack,
         bottomNavigationBar: const CustomNavigationBar(),
       ),
     );

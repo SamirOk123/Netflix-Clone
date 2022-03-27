@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/cosntants.dart';
 import 'package:netflix_clone/networking.dart';
+import 'package:netflix_clone/widgets/appbar_actions.dart';
 
 class Downloads extends StatelessWidget {
   const Downloads({Key? key}) : super(key: key);
@@ -12,35 +14,19 @@ class Downloads extends StatelessWidget {
           return <Widget>[
             SliverAppBar(
               snap: true,
-              backgroundColor: Colors.transparent,
+              backgroundColor: kBlack,
               floating: true,
               pinned: false,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 background: AppBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: kBlack,
                   title: const Text(
                     "Downloads",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
-                  actions: [
-                    Image.asset(
-                      'assets/icons/search.png',
-                      color: Colors.white,
-                      height: 24,
-                      width: 24,
-                    ),
-                    const SizedBox(
-                      width: 25,
-                    ),
-                    Image.asset(
-                      'assets/icons/netflix_avatar.png',
-                      width: 24,
-                      height: 24,
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
+                  actions: const [
+                    AppBarActions(),
                   ],
                 ),
               ),
@@ -75,92 +61,91 @@ class Downloads extends StatelessWidget {
               child: Text(
                 'Introducing Downloads for you',
                 style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 21),
+                    color: kWhite, fontWeight: FontWeight.bold, fontSize: 21),
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 14, top: 20),
               child: Text(
-                'We\'ll download a personalised selection of movies\nand shows for you, so there\'s always something to\nwatch on your phone.',
+                kDownloadScreenText,
                 style: TextStyle(
                   color: Color.fromARGB(193, 255, 255, 255),
                 ),
               ),
             ),
-            FutureBuilder(future: Networking().getTrending(),builder: (context,snapshot){
-              if(snapshot.hasData){
-                List trending = snapshot.data as List;
-              return Center(
-                child: Stack(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 20.0, top: 27.0),
-                      child: Center(
-                        child: CircleAvatar(
-                          backgroundColor: Color.fromARGB(69, 158, 158, 158),
-                          radius: 107,
-                        ),
-                      ),
-                    ),
-                    Transform.rotate(
-                      angle: 50,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 85, left: 50),
-                        width: 110,
-                        height: 155,
-                        decoration: BoxDecoration(
-                          image:  DecorationImage(
-                              image: NetworkImage(
-                              'http://image.tmdb.org/t/p/w500' +
-                                            trending[6]['poster_path'],
-                              ),
-                              fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color.fromARGB(69, 158, 158, 158),
-                        ),
-                      ),
-                    ),
-                    Transform.rotate(
-                      angle: 31.72,
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 44 , left: 198),
-                        width: 110,
-                        height: 155,
-                        decoration: BoxDecoration(
-                          image:  DecorationImage(
-                              image: NetworkImage(
-                                'http://image.tmdb.org/t/p/w500' +
-                                            trending[4]['poster_path'],
-                              ),
-                              fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color.fromARGB(69, 158, 158, 158),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 55, left: 118),
-                      width: 125,
-                      height: 170,
-                      decoration: BoxDecoration(
-                        image:  DecorationImage(
-                            image: NetworkImage(
-                           'http://image.tmdb.org/t/p/w500' +
-                                            trending[3]['poster_path'],
+            FutureBuilder(
+              future: Networking().getTrending(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List trending = snapshot.data as List;
+                  return Center(
+                    child: Stack(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 20.0, top: 27.0),
+                          child: Center(
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  Color.fromARGB(69, 158, 158, 158),
+                              radius: 107,
                             ),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(5),
-                        color: const Color.fromARGB(69, 158, 158, 158),
-                      ),
+                          ),
+                        ),
+                        Transform.rotate(
+                          angle: 50,
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 85, left: 50),
+                            width: 110,
+                            height: 155,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    kImageURL + trending[6]['poster_path'],
+                                  ),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color.fromARGB(69, 158, 158, 158),
+                            ),
+                          ),
+                        ),
+                        Transform.rotate(
+                          angle: 31.72,
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 46, left: 198),
+                            width: 110,
+                            height: 155,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    kImageURL + trending[4]['poster_path'],
+                                  ),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color.fromARGB(69, 158, 158, 158),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 55, left: 118),
+                          width: 125,
+                          height: 170,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                  kImageURL + trending[3]['poster_path'],
+                                ),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color.fromARGB(69, 158, 158, 158),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              );
-               }return const SizedBox();
-                
-               }, ),
+                  );
+                }
+                return const SizedBox();
+              },
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -175,7 +160,7 @@ class Downloads extends StatelessWidget {
               child: const Center(
                 child: Text(
                   'Set Up',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: kWhite),
                 ),
               ),
             ),
